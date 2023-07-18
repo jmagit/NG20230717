@@ -1,11 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
+
+export const ERROR_LEVEL = new InjectionToken<string>('ERROR_LEVEL')
 
 @Injectable()
 export class LoggerService {
-  private nivel: number = 99
+  private readonly nivel: number
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  constructor() { }
+  constructor(@Optional() @Inject(ERROR_LEVEL) nivel?: number) {
+    if(nivel || nivel == 0) {
+      this.nivel = nivel
+    } else {
+      this.nivel = 99
+    }
+  }
 
   public error(msg: string): void {
     if (this.nivel > 0) {
