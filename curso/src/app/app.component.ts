@@ -17,8 +17,8 @@ export class AppComponent {
   //   log.log('Es un log')
   // }
 
-  constructor(private notify: NotificationService) {}
-  ngOnInit(): void {
-    this.notify.add('Inicio la aplicación', NotificationType.info)
-  }
+  // constructor(private notify: NotificationService) {}
+  // ngOnInit(): void {
+  //   this.notify.add('Inicio la aplicación', NotificationType.info)
+  // }
 }
