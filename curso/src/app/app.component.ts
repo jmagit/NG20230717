@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoggerService } from '@my/core';
+import { NotificationService, NotificationType } from './common-services';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +16,9 @@ export class AppComponent {
   //   log.info('Es un info')
   //   log.log('Es un log')
   // }
+
+  constructor(private notify: NotificationService) {}
+  ngOnInit(): void {
+    this.notify.add('Inicio la aplicación', NotificationType.info)
+  }
 }
