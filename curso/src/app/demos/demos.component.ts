@@ -22,7 +22,7 @@ export class DemosComponent implements OnInit, OnDestroy {
 
   resultado?: string;
   visible = true
-  estetica = { importante: true, urgente: false, error: false}
+  estetica = { importante: true, urgente: true, error: false}
 
   constructor(public vm: NotificationService) { }
 

@@ -10,6 +10,7 @@ import { ERROR_LEVEL, LoggerService, MyCoreModule } from '@my/core';
 import { environment } from 'src/environments/environment';
 import { DemosComponent } from './demos/demos.component';
 import { CommonServicesModule } from './common-services';
+import { CommonComponentModule } from './common-component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CommonServicesModule } from './common-services';
   imports: [
     BrowserModule, FormsModule,
     AppRoutingModule, MainModule, SecurityModule, MyCoreModule, CommonServicesModule,
+    CommonComponentModule,
   ],
   providers: [
     LoggerService,

@@ -1,4 +1,4 @@
-<h1>Hola {{Nombre}}</h1>
+<h1>Hola {{Nombre | elipsis:10 | uppercase}}</h1>
 <p>
   <input type="text" [(ngModel)]="Nombre" >
   <input type="button" value="saluda" (click)="saluda()">
@@ -10,7 +10,7 @@
   <input type="button" value="Info" (click)="vm.add('Solo una notificación informativa', vm.NotificationType.info)">
   <input type="button" value="Log" (click)="vm.add('Para trazar con notificaciones', vm.NotificationType.log)">
 </p>
-<p>Hoy es {{fecha}}</p>
+<p>Hoy es {{fecha | date:'dd/MMM/yyyy' | uppercase}}</p>
 
 <p [textContent]="resultado">Esto se pierde</p>
 <p [innerHTML]="resultado">Esto se pierde</p>
@@ -23,21 +23,28 @@
 </p>
 <p [class.semi-visible]="!visible">Ahora me ves bien</p>
 
-<p>Calcula: 2 + 2 = {{2 + 2}} = {{ calcula(2, 2) }}</p>
+<p>Calcula: 2 + 2 = {{(2 + 2) | number:'2.1-4'}} = {{ calcula(2, 2) | currency:'EUR':'symbol':'1.2-2' }}</p>
 
 <ul>
-  <li *ngFor="let item of listado; let indice=index; let fondo=odd;"
+  <li *ngFor="let item of listado | slice:-5; let indice=index; let fondo=odd;"
      [style.background-color]="fondo ? 'LightBlue' : 'Lavender'">
-      {{item.nombre}} ({{item.id}}) [Elemento {{indice + 1}} de {{listado.length}}]
+      {{item.nombre | titlecase}} ({{item.id}}) [Elemento {{indice + 1}} de {{listado.length}}]
     </li>
 </ul>
 
 <p>
   <select [(ngModel)]="idProvincia" >
     <option value="">--Elige opción--</option>
-    <option *ngFor="let p of listado" [value]="p.id">{{p.nombre}}</option>
+    <option *ngFor="let p of listado" [value]="p.id">{{p.nombre | capitalize}}</option>
   </select>
   Seleccionado: {{idProvincia}}
   <input type="text" value="Tabarnia" #txtProvincia >
   <input type="button" value="add" (click)="add(txtProvincia.value)">
 </p>
+<app-card [header]="resultado">
+  <input type="number" [(ngModel)]="fontSize" >
+  <my-sizer [(size)]="fontSize" />
+  <p [style.font-size.px]="fontSize">
+    {{ listado | json}}
+  </p>
+</app-card>
