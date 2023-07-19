@@ -1,3 +1,3 @@
 export * from './my-core.module'
 export * from './services/logger.service'
-export { CapitalizePipe, ElipsisPipe } from './pipes/cadenas.pipe'
+export { CapitalizePipe, ElipsisPipe, StripTagsPipe, ErrorMessagePipe, } from './pipes/cadenas.pipe'

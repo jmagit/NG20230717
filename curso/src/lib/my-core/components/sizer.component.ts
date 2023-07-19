@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     <div>
       <button (click)="dec()">-</button>
       <button (click)="inc()">+</button>
-      <label [style.font-size.px]="size">FontSize: {{size}}px</label>
+      <output [style.font-size.px]="size">FontSize: {{size}}px</output>
     </div>
   `
 })
