@@ -126,11 +126,11 @@ export class CalculadoraComponent implements OnInit, OnChanges {
     }
     // Con eval()
     // acumulado = eval (acumulado + operador + miPantalla);
-    this.miResumen = value == '=' ? '' : (`${this.acumulado} ${value}`);
     // Number: double-precision IEEE 754 floating point.
     // 9.9 + 1.3, 0.1 + 0.2, 1.0 - 0.9
     this.miPantalla = parseFloat(this.acumulado.toPrecision(15)).toString();
     // this.miPantalla = this.acumulado.toString();
+    this.miResumen = value == '=' ? '' : (`${this.miPantalla} ${value}`);
     this.updated.emit(this.acumulado);
     this.operador = value;
     this.limpiar = true;
@@ -138,15 +138,15 @@ export class CalculadoraComponent implements OnInit, OnChanges {
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
-    // if (this.init) {
-    //   this.ponOperando(this.init);
-    // }
-  }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ngOnChanges(_changes: SimpleChanges): void {
     if (this.init) {
-      this.ponOperando(this.init.toString());
+      this.ponOperando(this.init);
     }
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @angular-eslint/no-empty-lifecycle-method
+  ngOnChanges(_changes: SimpleChanges): void {
+    // if (this.init) {
+    //   this.ponOperando(this.init.toString());
+    // }
   }
 
   // teclado = fromEvent(document, 'keydown').subscribe({next: ev => this.handleKeyDown(ev as KeyboardEvent)})
