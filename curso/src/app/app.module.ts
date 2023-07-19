@@ -11,11 +11,13 @@ import { environment } from 'src/environments/environment';
 import { DemosComponent } from './demos/demos.component';
 import { CommonServicesModule } from './common-services';
 import { CommonComponentModule } from './common-component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemosComponent
+    DemosComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule, FormsModule,

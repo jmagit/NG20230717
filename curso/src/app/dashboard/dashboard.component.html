@@ -1,0 +1,9 @@
+<header>
+  <nav>
+    <button type="button" *ngFor="let item of menu; let indice = index" (click)="selecciona(indice)">{{item.texto}}</button>
+  </nav>
+</header>
+<app-notification />
+<main class="container-fluid">
+  <ng-container *ngComponentOutlet="actual" />
+</main>
