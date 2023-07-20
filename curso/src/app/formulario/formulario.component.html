@@ -20,20 +20,22 @@
   <div>
     <label for="apellidos" class="form-label">apellidos:</label>
     <input type="text" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="elemento.apellidos"
-      #apellidos="ngModel" minlength="2" maxlength="10">
+      #apellidos="ngModel" minlength="2" maxlength="10" uppercase>
     <output class="error" [hidden]="!apellidos.hasError('minlength') ">Debe tener como mínimo
       {{apellidos.errors?.['minlength']?.requiredLength}} caracteres"</output>
+    <output class="error" [hidden]="!apellidos.hasError('uppercase') ">Debe estar en mayúsculas</output>
+    <output class="error" [hidden]="apellidos.valid">{{apellidos.errors | errormsg}}</output>
   </div>
   <div>
     <label for="correo" class="form-label">correo:</label>
-    <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="elemento.correo" #correo="ngModel"
-      maxlength="100" email>
+    <input type="url" class="form-control" id="correo" name="correo" [(ngModel)]="elemento.correo" #correo="ngModel"
+      maxlength="100" >
     <output class="error" [hidden]="correo.valid">{{correo.errors | errormsg}}</output>
   </div>
   <div>
     <label for="nif" class="form-label">nif:</label>
     <input type="text" class="form-control" id="nif" name="nif" [(ngModel)]="elemento.nif" #nif="ngModel"
-      pattern="^\d{1,8}[A-Z]$">
+      nif>
     <output class="error" [hidden]="nif.valid">{{nif.errors | errormsg:'Tiene que tener de 1 a 8 dígitos y una letra en mayúsculas'}}</output>
 
   </div>

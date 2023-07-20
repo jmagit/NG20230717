@@ -62,4 +62,4 @@ export class TypeValidatorDirective implements Validator {
   }
 }
 
-export const MIS_VALIDADORES = [ NIFValidatorDirective, TypeValidatorDirective ]
+export const MIS_VALIDADORES = [ NIFValidatorDirective, TypeValidatorDirective, UppercaseValidatorDirective ]
