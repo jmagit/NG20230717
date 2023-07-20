@@ -1,0 +1,31 @@
+<form #miForm="ngForm">
+  <div>
+    <label for="id" class="form-label">código:</label>
+    <input type="number" class="form-control"  id="id" name="id" [(ngModel)]="elemento.id" #id="ngModel" >
+  </div>
+  <div>
+    <label for="nombre" class="form-label">nombre:</label>
+    <input type="text" class="form-control"  id="nombre" name="nombre" [(ngModel)]="elemento.nombre" #nombre="ngModel" >
+  </div>
+  <div>
+    <label for="apellidos" class="form-label">apellidos:</label>
+    <input type="text" class="form-control"  id="apellidos" name="apellidos" [(ngModel)]="elemento.apellidos" #apellidos="ngModel" >
+  </div>
+  <div>
+    <label for="correo" class="form-label">correo:</label>
+    <input type="email" class="form-control"  id="correo" name="correo" [(ngModel)]="elemento.correo" #correo="ngModel" >
+  </div>
+  <div>
+    <label for="nif" class="form-label">nif:</label>
+    <input type="text" class="form-control"  id="nif" name="nif" [(ngModel)]="elemento.nif" #nif="ngModel" >
+  </div>
+  <div>
+    <label for="edad" class="form-label">edad:</label>
+    <input type="number" class="form-control"  id="edad" name="edad" [(ngModel)]="elemento.edad" #edad="ngModel" >
+  </div>
+  <p>
+    <input type="button" value="enviar" (click)="send()" >
+    <input type="button" value="volver" (click)="cancel()" >
+  </p>
+</form>
+{{elemento | json}}
