@@ -138,15 +138,15 @@ export class CalculadoraComponent implements OnInit, OnChanges {
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
-    if (this.init) {
-      this.ponOperando(this.init);
-    }
+    // if (this.init) {
+    //   this.ponOperando(this.init);
+    // }
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @angular-eslint/no-empty-lifecycle-method
   ngOnChanges(_changes: SimpleChanges): void {
-    // if (this.init) {
-    //   this.ponOperando(this.init.toString());
-    // }
+    if (this.init) {
+      this.ponOperando(this.init.toString());
+    }
   }
 
   // teclado = fromEvent(document, 'keydown').subscribe({next: ev => this.handleKeyDown(ev as KeyboardEvent)})
