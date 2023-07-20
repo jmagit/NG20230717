@@ -1,6 +1,6 @@
 <p>
-  <input type="button" value="add" (click)="add()">
-  <input type="button" value="edit" (click)="edit()">
+  <input *ngIf="auth.isAutenticated" type="button" value="add" (click)="add()">
+  <input *ngIf="auth.isInRoles('Administradores')" type="button" value="edit" (click)="edit()">
   <input type="button" value="list" (click)="load()">
 </p>
 

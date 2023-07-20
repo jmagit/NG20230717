@@ -2,7 +2,7 @@ import { Component, Injectable } from '@angular/core';
 import { RESTDAOService } from '../base-code/rest-dao-service.class';
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { NotificationService } from '../common-services';
-import { AUTH_REQUIRED } from '../security';
+import { AUTH_REQUIRED, AuthService } from '../security';
 import { Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
@@ -23,7 +23,7 @@ export class FormularioComponent {
   elemento: any = { }
   modo: 'add' | 'edit' = 'add'
 
-  constructor(private dao: PersonaDaoService, private notify: NotificationService) {}
+  constructor(private dao: PersonaDaoService, private notify: NotificationService, public auth: AuthService) {}
 
   add() {
     this.elemento = {}
