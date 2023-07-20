@@ -1,6 +1,7 @@
 <p>
   <input type="button" value="add" (click)="add()">
   <input type="button" value="edit" (click)="edit()">
+  <input type="button" value="list" (click)="load()">
 </p>
 
 <form #miForm="ngForm">
@@ -28,7 +29,7 @@
   </div>
   <div>
     <label for="correo" class="form-label">correo:</label>
-    <input type="url" class="form-control" id="correo" name="correo" [(ngModel)]="elemento.correo" #correo="ngModel"
+    <input type="text" class="form-control" id="correo" name="correo" [(ngModel)]="elemento.correo" #correo="ngModel"
       maxlength="100" >
     <output class="error" [hidden]="correo.valid">{{correo.errors | errormsg}}</output>
   </div>
@@ -50,5 +51,9 @@
     <input type="button" value="enviar" (click)="send()" [disabled]="miForm.invalid">
     <input type="button" value="volver" (click)="cancel()">
   </p>
+  <app-form-buttons send-text="enviar" [send-disabled]="miForm.invalid" (send)="send()" [cancel-text]="'volver'" (cancel)="cancel()" />
 </form>
-{{elemento | json}}
+{{listado | json}}
+<ul>
+  <li *ngFor="let item of listado">{{item.nombre}} {{item.apellidos}}</li>
+</ul>
