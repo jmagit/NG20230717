@@ -4,8 +4,8 @@ import { HomeComponent, PageNotFoundComponent } from './main';
 import { DemosComponent } from './demos/demos.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ContactosAddComponent, ContactosEditComponent, ContactosListComponent, ContactosViewComponent } from './contactos';
-// import { LibrosComponent } from './libros';
-// import GraficoSvgComponent from 'src/lib/independientes/grafico-svg/grafico-svg.component';
+import { LibrosComponent } from './libros';
+import GraficoSvgComponent from 'src/lib/independientes/grafico-svg/grafico-svg.component';
 import { AuthCanActivateFn, AuthWithRedirectCanActivate, InRoleCanActivate, LoginFormComponent } from './security';
 
 function svgFiles(url: UrlSegment[]) {
@@ -33,8 +33,7 @@ const routes: Routes = [
     canActivate: [ AuthWithRedirectCanActivate('/login'), InRoleCanActivate ]},
   { path: 'alysia/baxendale', redirectTo: '/contactos/43'},
   { path: 'login', component: LoginFormComponent },
-  // { matcher: svgFiles, component: GraficoSvgComponent },
-  { matcher: svgFiles, loadComponent: () => import('../lib/independientes/grafico-svg/grafico-svg.component') },
+  { matcher: svgFiles, component: GraficoSvgComponent },
   { path: 'config', loadChildren: () => import('./config/config.module')},
   { path: '404.html', component: PageNotFoundComponent },
   { path: '**', component: PageNotFoundComponent }
