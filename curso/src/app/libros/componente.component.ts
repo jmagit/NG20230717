@@ -21,7 +21,7 @@ export class LibrosComponent implements OnInit, OnDestroy {
 
 @Component({
   selector: 'app-libros-list',
-  templateUrl: './tmpl-list.sin-rutas.component.html',
+  templateUrl: './tmpl-list.component.html',
   styleUrls: ['./componente.component.css']
 })
 export class LibrosListComponent implements OnInit, OnDestroy {
