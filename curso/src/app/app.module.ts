@@ -22,6 +22,7 @@ import GraficoSvgComponent from 'src/lib/independientes/grafico-svg/grafico-svg.
 import { FormularioComponent } from './formulario/formulario.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ContactosModule } from './contactos';
+import { LibrosModule } from './libros';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { ContactosModule } from './contactos';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MainModule, SecurityModule, MyCoreModule, CommonServicesModule,
-    CommonComponentModule, GraficoSvgComponent, ContactosModule,
+    CommonComponentModule, GraficoSvgComponent, ContactosModule, LibrosModule,
   ],
   providers: [
     LoggerService,
