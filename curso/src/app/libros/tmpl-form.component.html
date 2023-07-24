@@ -42,6 +42,6 @@
     <label for="wiki">Wiki:</label>
     <div class="invalid-feedback" [hidden]="wiki.valid">{{wiki.errors | errormsg}}</div>
   </div>
-  <app-form-buttons (send)="VM.send()" [send-disabled]="miForm.invalid" (cancel)="VM.cancel()"></app-form-buttons>
-  <a class="btn btn-danger" *ngIf="VM.Modo === 'edit'" (click)="VM.delete(VM.Elemento.idLibro)"><i class="far fa-trash-alt"></i></a>
+  <app-form-buttons (send)="VM.send()" [send-disabled]="miForm.invalid" (cancel)="VM.cancel()"
+    (delete)="VM.delete(VM.Elemento.idLibro)" [delete-visible]="VM.Modo === 'edit'" />
 </form>

@@ -1,6 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
+  name: 'exec'
+})
+export class ExecPipe implements PipeTransform {
+  // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-explicit-any
+  transform(fn: Function, ...args: any[]): any {
+    return fn(...args);
+  }
+}
+
+@Pipe({
   name: 'toComaDecimal'
 })
 export class ToComaDecimalPipe implements PipeTransform {
@@ -15,4 +25,4 @@ export class ToComaDecimalPipe implements PipeTransform {
   }
 }
 
-export const PIPES_NUMERICOS = [ ToComaDecimalPipe, ]
+export const PIPES_NUMERICOS = [ ToComaDecimalPipe, ExecPipe, ]

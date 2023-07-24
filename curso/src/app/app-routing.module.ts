@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, UrlSegment } from '@angular/router';
+import { ActivatedRouteSnapshot, BaseRouteReuseStrategy, RouteReuseStrategy, RouterModule, Routes, UrlSegment } from '@angular/router';
 import { HomeComponent, PageNotFoundComponent } from './main';
 import { DemosComponent } from './demos/demos.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
@@ -40,8 +40,14 @@ const routes: Routes = [
   { path: '**', component: PageNotFoundComponent }
 ];
 
+class NotRouteReuseStrategy extends BaseRouteReuseStrategy {
+  override shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
+      return false;
+  }
+}
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {bindToComponentInputs: true})],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, {bindToComponentInputs: true, onSameUrlNavigation: 'reload',  })],
+  exports: [RouterModule],
+  providers: [ {provide: RouteReuseStrategy, useClass: NotRouteReuseStrategy} ]
 })
 export class AppRoutingModule { }

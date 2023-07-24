@@ -62,7 +62,7 @@
 </p>
 <p [class.semi-visible]="!visible">Ahora me ves bien</p>
 
-<p>Calcula: 2 + 2 = {{(2 + 2) | number:'2.1-4'}} = {{ calcula(2, 2) | currency:'EUR':'symbol':'1.2-2' }}</p>
+<p>Calcula: 2 + 2 = {{(2 + 2) | number:'2.1-4'}} = {{ calcula(2, 2) | currency:'EUR':'symbol':'1.2-2' }} = {{ calcula | exec:2:2 | currency:'EUR':'symbol':'1.2-2' }}</p>
 
 <ul>
   <li *ngFor="let item of listado | slice:-5; let indice=index; let fondo=odd;"

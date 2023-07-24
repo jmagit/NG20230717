@@ -1,4 +1,4 @@
-<h1>Libro</h1>
+<h1>Libro <a class="btn btn-link" [routerLink]="['/', 'libros', VM.Elemento.idLibro,'edit']"><i class="fas fa-pen"></i></a></h1>
 <dl class="row">
   <dt>Ref.</dt>
   <dd>{{VM.Elemento.idLibro}}</dd>
@@ -16,7 +16,5 @@
   <dd><a href="{{VM.Elemento.wiki}}" target="_blank">{{VM.Elemento.wiki}}</a></dd>
 </dl>
 <div>
-  <input class="btn btn-secondary" type="button" value="Volver" (click)="VM.cancel()">
-  <a class="btn btn-success" [routerLink]="['/', 'libros', VM.Elemento.idLibro,'edit']"><i class="fas fa-pen"></i></a>
-
+  <app-form-buttons (cancel)="VM.cancel()" />
 </div>

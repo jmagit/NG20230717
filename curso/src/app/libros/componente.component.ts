@@ -23,7 +23,7 @@ export class LibrosComponent implements OnInit, OnDestroy {
     } else if (this.route.snapshot.url.slice(-1)[0]?.path === 'add') {
       this.vm.add();
     } else {
-      this.vm.load();
+      this.vm.load(this.route.snapshot.queryParams['page'] ?? 0);
     }
   }
   ngOnDestroy(): void { this.vm.clear(); }
